@@ -5,8 +5,8 @@ import { Room } from './room.models';
 export class RoomService {
   private readonly rooms: Room[] = [
     { name: 'room1' },
-    { name: 'room1' },
-    { name: 'room1' },
+    { name: 'room2' },
+    { name: 'room3' },
   ];
 
   findAll(): Room[] {
