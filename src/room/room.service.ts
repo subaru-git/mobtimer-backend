@@ -1,15 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { Room } from './room.models';
+import { PrismaService } from '../prisma.service';
 
 @Injectable()
 export class RoomService {
-  private readonly rooms: Room[] = [
-    { name: 'room1' },
-    { name: 'room2' },
-    { name: 'room3' },
-  ];
+  constructor(private prisma: PrismaService) {}
 
-  findAll(): Room[] {
-    return this.rooms;
+  async findAll(): Promise<Room[]> {
+    return this.prisma.room.findMany();
   }
 }

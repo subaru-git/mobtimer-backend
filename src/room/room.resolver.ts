@@ -6,7 +6,7 @@ import { RoomService } from './room.service';
 export class RoomResolver {
   constructor(private roomService: RoomService) {}
   @Query(() => [Room], { nullable: 'items' })
-  findAll() {
-    return this.roomService.findAll();
+  async findAll() {
+    return await this.roomService.findAll();
   }
 }
