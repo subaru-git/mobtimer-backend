@@ -2,10 +2,18 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Mutation {
+  createRoom(name: String!): Room!
+}
+
 type Query {
   findAll: [Room]!
 }
 
 type Room {
   name: String!
+}
+
+type Subscription {
+  roomAdded: Room!
 }

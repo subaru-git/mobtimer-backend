@@ -9,4 +9,8 @@ export class RoomService {
   async findAll(): Promise<Room[]> {
     return this.prisma.room.findMany();
   }
+
+  createRoom = (name: string) => {
+    return this.prisma.room.create({ data: { name } });
+  };
 }
