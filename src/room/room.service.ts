@@ -16,4 +16,8 @@ export class RoomService {
   createRoom = (name: string) => {
     return this.prisma.room.create({ data: { name } });
   };
+
+  updateRoom = (name: string, topic: string) => {
+    return this.prisma.room.update({ where: { name }, data: { topic } });
+  };
 }

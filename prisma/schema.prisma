@@ -11,5 +11,6 @@ datasource db {
 }
 
 model Room {
-  name String @unique
+  name  String  @unique
+  topic String?
 }

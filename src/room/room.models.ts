@@ -4,4 +4,6 @@ import { Field, ObjectType } from '@nestjs/graphql';
 export class Room {
   @Field()
   name: string;
+  @Field({ nullable: true })
+  topic: string;
 }

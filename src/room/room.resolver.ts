@@ -19,12 +19,19 @@ export class RoomResolver {
   @Mutation(() => Room)
   async createRoom(@Args('name') name: string) {
     const newRoom = await this.roomService.createRoom(name);
-    pubSub.publish('roomAdded', { roomAdded: newRoom });
+    pubSub.publish('roomUpdated', { roomAdded: newRoom });
     return newRoom;
   }
 
+  @Mutation(() => Room)
+  async updateRoom(@Args('name') name: string, @Args('topic') topic: string) {
+    const updatedRoom = await this.roomService.updateRoom(name, topic);
+    pubSub.publish('roomUpdated', { roomUpdated: updatedRoom });
+    return updatedRoom;
+  }
+
   @Subscription(() => Room)
-  async roomAdded() {
-    return pubSub.asyncIterator('roomAdded');
+  async roomUpdated() {
+    return pubSub.asyncIterator('roomUpdated');
   }
 }
