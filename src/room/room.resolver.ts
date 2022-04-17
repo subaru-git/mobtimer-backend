@@ -11,6 +11,10 @@ export class RoomResolver {
   async findAll() {
     return await this.roomService.findAll();
   }
+  @Query(() => Room, { nullable: true })
+  async find(@Args('name') name: string) {
+    return await this.roomService.find(name);
+  }
 
   @Mutation(() => Room)
   async createRoom(@Args('name') name: string) {
