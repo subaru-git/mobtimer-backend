@@ -18,5 +18,5 @@ type Room {
 }
 
 type Subscription {
-  roomUpdated: Room!
+  roomUpdated(name: String!): Room!
 }

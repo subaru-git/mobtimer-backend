@@ -1,4 +1,11 @@
-import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
+import {
+  Args,
+  Context,
+  Mutation,
+  Query,
+  Resolver,
+  Subscription,
+} from '@nestjs/graphql';
 import { PubSub } from 'graphql-subscriptions';
 import { Room } from './room.models';
 import { RoomService } from './room.service';
@@ -30,8 +37,11 @@ export class RoomResolver {
     return updatedRoom;
   }
 
-  @Subscription(() => Room)
-  async roomUpdated() {
+  @Subscription(() => Room, {
+    filter: (payload, variables) => payload.roomUpdated.name === variables.name,
+  })
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async roomUpdated(@Args('name') _name: string) {
     return pubSub.asyncIterator('roomUpdated');
   }
 }
