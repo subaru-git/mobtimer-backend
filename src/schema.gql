@@ -13,8 +13,12 @@ type Query {
 }
 
 type Room {
+  breakcount: Float!
+  breaktime: Float!
+  members: [String!]!
   name: String!
   topic: String
+  worktime: Float!
 }
 
 type Subscription {

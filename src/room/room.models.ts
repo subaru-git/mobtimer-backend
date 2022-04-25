@@ -6,4 +6,12 @@ export class Room {
   name: string;
   @Field({ nullable: true })
   topic: string;
+  @Field()
+  worktime: number;
+  @Field()
+  breaktime: number;
+  @Field()
+  breakcount: number;
+  @Field(() => [String])
+  members: string[];
 }

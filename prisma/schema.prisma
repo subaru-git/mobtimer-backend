@@ -11,6 +11,10 @@ datasource db {
 }
 
 model Room {
-  name  String  @unique
-  topic String?
+  name       String   @unique
+  topic      String?
+  worktime   Int      @default(15)
+  breaktime  Int      @default(15)
+  breakcount Int      @default(4)
+  members    String[]
 }
