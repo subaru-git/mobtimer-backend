@@ -1,6 +1,6 @@
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { PubSub } from 'graphql-subscriptions';
-import { Room } from './room.models';
+import { Room, RoomInput } from './room.models';
 import { RoomService } from './room.service';
 const pubSub = new PubSub();
 
@@ -24,8 +24,8 @@ export class RoomResolver {
   }
 
   @Mutation(() => Room)
-  async updateRoom(@Args('name') name: string, @Args('topic') topic: string) {
-    const updatedRoom = await this.roomService.updateRoom(name, topic);
+  async updateRoom(@Args('room') room: RoomInput) {
+    const updatedRoom = await this.roomService.updateRoom(room);
     pubSub.publish('roomUpdated', { roomUpdated: updatedRoom });
     return updatedRoom;
   }

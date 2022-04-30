@@ -4,7 +4,7 @@
 
 type Mutation {
   createRoom(name: String!): Room!
-  updateRoom(name: String!, topic: String!): Room!
+  updateRoom(room: RoomInput!): Room!
 }
 
 type Query {
@@ -13,6 +13,15 @@ type Query {
 }
 
 type Room {
+  breakcount: Float!
+  breaktime: Float!
+  members: [String!]!
+  name: String!
+  topic: String
+  worktime: Float!
+}
+
+input RoomInput {
   breakcount: Float!
   breaktime: Float!
   members: [String!]!

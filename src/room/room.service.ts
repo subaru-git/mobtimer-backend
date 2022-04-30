@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Room } from './room.models';
+import { Room, RoomInput } from './room.models';
 import { PrismaService } from '../prisma.service';
 
 @Injectable()
@@ -17,7 +17,8 @@ export class RoomService {
     return this.prisma.room.create({ data: { name } });
   };
 
-  updateRoom = (name: string, topic: string) => {
-    return this.prisma.room.update({ where: { name }, data: { topic } });
+  updateRoom = (r: RoomInput) => {
+    const name = r.name;
+    return this.prisma.room.update({ where: { name }, data: r });
   };
 }
