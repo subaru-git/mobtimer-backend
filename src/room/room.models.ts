@@ -14,6 +14,12 @@ export class RoomInput {
   breakcount: number;
   @Field(() => [String])
   members: string[];
+  @Field(() => Date, { nullable: true })
+  maintimer: Date;
+  @Field(() => Date)
+  updatedAt: Date;
+  @Field(() => Date)
+  createdAt: Date;
 }
 
 @ObjectType()
@@ -30,4 +36,10 @@ export class Room {
   breakcount: number;
   @Field(() => [String])
   members: string[];
+  @Field(() => Date, { nullable: true })
+  maintimer: Date;
+  @Field(() => Date)
+  updatedAt: Date;
+  @Field(() => Date)
+  createdAt: Date;
 }

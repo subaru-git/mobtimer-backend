@@ -2,6 +2,11 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Mutation {
   createRoom(name: String!): Room!
   updateRoom(room: RoomInput!): Room!
@@ -15,18 +20,24 @@ type Query {
 type Room {
   breakcount: Float!
   breaktime: Float!
+  createdAt: DateTime!
+  maintimer: DateTime
   members: [String!]!
   name: String!
   topic: String
+  updatedAt: DateTime!
   worktime: Float!
 }
 
 input RoomInput {
   breakcount: Float!
   breaktime: Float!
+  createdAt: DateTime!
+  maintimer: DateTime
   members: [String!]!
   name: String!
   topic: String
+  updatedAt: DateTime!
   worktime: Float!
 }
 
