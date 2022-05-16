@@ -20,8 +20,7 @@ jobs:
       - name: create .env file
         run: |
           touch .env
-          echo "DATABASE_URL=postgresql://admin:admin@localhost:5432/mobtimer?schema=public" >> .env
-          cat .env
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
       - name: lint code
         run: yarn lint
       - name: enable prisma
