@@ -21,6 +21,7 @@ jobs:
         run: |
           touch .env
           echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
+          cat .env
       - name: lint code
         run: yarn lint
       - name: test code
