@@ -24,6 +24,8 @@ jobs:
           cat .env
       - name: lint code
         run: yarn lint
+      - name: enable prisma
+        run: npx prisma generate
       - name: test code
         run: yarn test
       - name: build code
