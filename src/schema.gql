@@ -20,6 +20,7 @@ type Query {
 type Room {
   breakcount: Float!
   breaktime: Float!
+  count: Float!
   createdAt: DateTime!
   maintimer: DateTime
   members: [String!]!
@@ -32,6 +33,7 @@ type Room {
 input RoomInput {
   breakcount: Float!
   breaktime: Float!
+  count: Float!
   createdAt: DateTime!
   maintimer: DateTime
   members: [String!]!

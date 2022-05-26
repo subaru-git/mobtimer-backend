@@ -7,6 +7,8 @@ export class RoomInput {
   @Field({ nullable: true })
   topic: string;
   @Field()
+  count: number;
+  @Field()
   worktime: number;
   @Field()
   breaktime: number;
@@ -28,6 +30,8 @@ export class Room {
   name: string;
   @Field({ nullable: true })
   topic: string;
+  @Field()
+  count: number;
   @Field()
   worktime: number;
   @Field()
