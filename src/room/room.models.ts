@@ -18,6 +18,8 @@ export class RoomInput {
   members: string[];
   @Field(() => Date, { nullable: true })
   maintimer: Date;
+  @Field(() => Date, { nullable: true })
+  simpletimer: Date;
   @Field(() => Date)
   updatedAt: Date;
   @Field(() => Date)
