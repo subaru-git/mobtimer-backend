@@ -25,6 +25,7 @@ type Room {
   maintimer: DateTime
   members: [String!]!
   name: String!
+  simpletimer: DateTime
   topic: String
   updatedAt: DateTime!
   worktime: Float!
